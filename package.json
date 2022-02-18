@@ -2,7 +2,7 @@
   "name": "xingo",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://jvdutra.github.io/xingo",
+  "homepage": "https://xingo.site",
   "dependencies": {
     "@mdi/js": "^6.5.95",
     "@mdi/react": "^1.5.0",
