@@ -26,6 +26,10 @@ export default function GameResultDialog({ show, handleClose, game }: Props) {
         return null;
     }
 
+    const shareActive = () => {
+        return navigator.canShare();
+    }
+
     const openTwitterShare = () => {
         const url = getShareOnTwitterURL(game);
 
@@ -37,7 +41,8 @@ export default function GameResultDialog({ show, handleClose, game }: Props) {
 
         navigator.share({
             title: 'Xingo - o jogo',
-            text: text
+            text: text,
+            url: 'https://xingo.site'
         });
     }
 
@@ -73,12 +78,16 @@ export default function GameResultDialog({ show, handleClose, game }: Props) {
                         Tweetar resultado
                     </CustomButton>
                 </Col>
-                <Col className="justify-content-center text-center">
-                    <CustomButton variant="secondary" onClick={() => openShare}>
-                        <Icon path={ShareIcon} size={1} style={{ marginRight: '5px' }} />
-                        Compartilhar
-                    </CustomButton>
-                </Col>
+                {
+                    shareActive() && (
+                        <Col className="justify-content-center text-center">
+                            <CustomButton variant="secondary" onClick={() => openShare}>
+                                <Icon path={ShareIcon} size={1} style={{ marginRight: '5px' }} />
+                                Compartilhar
+                            </CustomButton>
+                        </Col>
+                    )
+                }
             </Row>
         </CustomModal>
     );
