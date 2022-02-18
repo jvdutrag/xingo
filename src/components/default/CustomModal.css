@@ -1,0 +1,19 @@
+.custom-modal .modal-content {
+    background-color: rgb(36,36,36);
+    border: 2px solid rgba(202, 202, 202, 0.5);
+}
+
+.custom-modal .modal-header {
+    border: 0;
+}
+
+.custom-modal .modal-header .modal-title {
+    font-weight: bold;
+    font-size: 32px;
+    text-align: center;
+    width: 100%;
+}
+
+.custom-modal button.btn-close {
+    filter: brightness(0) invert(1);
+}

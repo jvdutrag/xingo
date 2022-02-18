@@ -1,0 +1,42 @@
+.guess-block-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    user-select: none;
+}
+
+.guess-block {
+    display: flex;
+    flex-direction: row;
+}
+
+.guess-block.current .letter {
+    border: 2px solid rgba(202, 202, 202, 0.5);
+}
+
+.letter {
+    display: flex;
+    width: 50px;
+    height: 50px;
+    text-transform: uppercase;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 25px;
+    font-weight: bold;
+    margin: 5px;
+    border-radius: 50%;
+    border: 2px solid rgba(71, 71, 71, 0.5);
+}
+
+.letter.correct {
+    background-color: #3e7447;
+}
+
+.letter.wrong {
+    background-color: #692c2c;
+}
+
+.letter.displaced {
+    background-color: #bc8309;
+}

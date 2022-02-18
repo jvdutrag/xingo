@@ -1,0 +1,62 @@
+@media only screen and (max-width: 600px) {
+    .keyboard-container {
+        zoom: 0.75;
+    }
+}
+
+.keyboard-container.disabled {
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+.keyboard-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    user-select: none;
+    margin-top: 20px;
+}
+
+.keyboard-block {
+    display: flex;
+    flex-direction: row;
+}
+
+.key {
+    display: flex;
+    width: 40px;
+    height: 45px;
+    text-transform: uppercase;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    margin: 3px;
+    border-radius: 5px;
+    background-color:rgba(71, 71, 71, 0.5);
+    cursor: pointer;
+}
+
+.key.correct {
+    background-color: #3e7447;
+}
+
+.key.wrong {
+    background-color: #692c2c;
+}
+
+.key.displaced {
+    background-color: #bc8309;
+}
+
+
+.key.action-key {
+    width: 80px;
+    height: 60px;
+}
+
+.key.action-key.action-key-send {
+    background-color: #961dbd;
+}

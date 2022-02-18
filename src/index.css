@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
+
+body {
+  color: #fff;
+  background: rgb(36,36,36);
+  background: linear-gradient(0deg, rgba(36,36,36,1) 0%, rgba(0,0,0,1) 100%) fixed;
+  font-family: 'Varela Round', sans-serif;
+}
+
+a {
+  font-weight: bold;
+  color: #fff;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #961DBD;
+}
+
+:root {
+  --toastify-color-success: #3e7447;
+  --toastify-color-error: #692c2c;
+  --toastify-color-warning: #bc8309;
+}
