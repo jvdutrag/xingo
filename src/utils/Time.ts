@@ -1,23 +1,28 @@
 import moment from 'moment-timezone';
+moment.tz.setDefault('America/Sao_Paulo');
 
-export function getToday() {
+function isUserInADifferentTimezone() {
     const userTimezone = moment.tz.guess();
 
-    const todayInCurrentTimezone = moment();
+    return userTimezone !== 'America/Sao_Paulo';
+}
 
-    if(userTimezone === 'America/Sao_Paulo') {
-        return todayInCurrentTimezone.format('YYYY-MM-DD');
-    }
+export function getToday(includeTime: boolean = false): string {
+    const today = moment();
 
-    const todayInSaoPauloTime = moment(todayInCurrentTimezone).tz('America/Sao_Paulo');
-
-    return todayInSaoPauloTime.format('YYYY-MM-DD');
+    return today.format(includeTime ? 'YYYY-MM-DD HH:mm:ss' : 'YYYY-MM-DD');
 }
 
 export function getNextDay() {
-    const today = getToday();
+    const today = getToday(true);
 
-    const nextDate = moment(today).add(1, 'days');
+    let nextDate = moment(today).add(1, 'days').startOf('day');
 
-    return nextDate.format('YYYY-MM-DD 00:00:00');
+    if(isUserInADifferentTimezone()) {
+        const userTimezone = moment.tz.guess();
+
+        nextDate = nextDate.tz(userTimezone);
+    }
+
+    return nextDate.format('YYYY-MM-DD HH:mm:ss');
 }

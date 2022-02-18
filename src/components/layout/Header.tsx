@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import Countdown from 'react-countdown';
+import Countdown, { zeroPad } from 'react-countdown';
 import { Row, Col } from 'react-bootstrap';
 import Icon from '@mdi/react';
 import {
@@ -24,6 +24,19 @@ export default function Header() {
     const [showHelpDialog, setShowHelpDialog] = useState(false);
     const [showSettingsDialog, setShowSettingsDialog] = useState(false);
     const [showStatsDialog, setShowStatsDialog] = useState(false);
+
+    const renderCountdown = ({ hours, minutes, seconds, completed }: any) => {
+        if(completed) {
+            return <span>Reinicie a página para jogar com a palavra nova!</span>
+        }
+
+        return (
+            <span>
+                Próxima palavra em&nbsp;
+                <strong>{zeroPad(hours)}:{zeroPad(minutes)}:{zeroPad(seconds)}</strong>
+            </span>
+        )
+    }
 
     return (
         <>
@@ -59,9 +72,7 @@ export default function Header() {
 
             <Row>
                 <Col className="justify-content-center text-center">
-                    <p>
-                        Próxima palavra em <strong><Countdown daysInHours={true} date={getNextDay()} /></strong>
-                    </p>
+                    <Countdown daysInHours={true} date={getNextDay()} renderer={renderCountdown as any} />
                 </Col>
             </Row>
         </>
