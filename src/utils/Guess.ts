@@ -41,6 +41,7 @@ export function parseGuess(letters: string[], wordSplit: string[]): Letter[] {
     
             if (indexOnMissingLetters !== -1) {
                 wrongLetter.condition = 'displaced';
+                missingLetters.splice(indexOnMissingLetters, 1);
             }
         }
     }
