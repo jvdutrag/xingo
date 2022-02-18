@@ -92,12 +92,12 @@ export default function HelpDialog({ show, handleClose }: Props) {
         <CustomModal show={show} handleClose={handleClose} title="Como jogar">
             <Row>
                 <Col style={{ textAlign: 'center' }}>
-                    <p>Todos os dias um novo palavrão surge pra você advinhar em 6 tentativas.</p>
+                    <p>Todos os dias uma nova palavra de baixo calão surge pra você advinhar em 6 tentativas.</p>
                     <p>Cada tentativa deve ser uma palavra válida de 5 letras. Acentos e cedilha são desconsiderados.</p>
                     <p>Ao efetuar uma tentativa, a cor das letras irá indicar se você está perto da resposta ou não.</p>
                     
                     <p>
-                        <strong>DICA:</strong> Na sua primeira tentativa, tente usar uma palavra comum.
+                        <strong>DICA:</strong> Na sua primeira tentativa, tente usar uma palavra comum. Palavras comuns também são aceitas.
                     </p>
                     <p>
                         <strong>AVISO:</strong> O Xingo é um jogo que contém palavras rudes e de baixo calão. Se você fica ofendido com o uso de palavras chulas, vulgares e obscenas, este jogo não é pra você.
