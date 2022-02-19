@@ -5,7 +5,7 @@ import {
     mdiSendOutline as SendIcon
 } from '@mdi/js';
 
-import { Guess } from '../../@types/Guess';
+import { Guess } from '../../types/Guess';
 
 import './Keyboard.css';
 

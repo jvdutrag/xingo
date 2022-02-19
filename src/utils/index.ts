@@ -1,8 +1,8 @@
 import moment from 'moment';
 import { toast } from 'react-toastify';
 
-import { AlertType } from '../@types/AlertType';
-import { Game } from '../@types/Game';
+import { AlertType } from '../types/AlertType';
+import { Game } from '../types/Game';
 
 export function isPressedKeyAValidLetter(key: string) {
     return key.length === 1 && key.match(/^[a-z]+$/i);

@@ -11,7 +11,7 @@ import {
 
 import { CustomModal, CustomButton, NextGameCountdown } from '../default';
 
-import { Game } from '../../@types/Game';
+import { Game } from '../../types/Game';
 
 import { getGameResultText, getShareOnTwitterURL } from '../../utils';
 

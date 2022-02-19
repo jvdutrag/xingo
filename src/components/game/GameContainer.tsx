@@ -1,7 +1,7 @@
 import { Row, Col } from 'react-bootstrap';
 
-import { Guess } from '../../@types/Guess';
-import { Letter } from '../../@types/Letter';
+import { Guess } from '../../types/Guess';
+import { Letter } from '../../types/Letter';
 
 import GuessBlock from './GuessBlock';
 

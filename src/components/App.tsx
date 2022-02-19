@@ -12,9 +12,9 @@ import {
 } from '../utils/Guess';
 import { GameResultDialog } from './dialog';
 
-import { Guess } from '../@types/Guess';
-import { ActionKey } from '../@types/ActionKey';
-import { Game } from '../@types/Game';
+import { Guess } from '../types/Guess';
+import { ActionKey } from '../types/ActionKey';
+import { Game } from '../types/Game';
 
 import {
   getWordOfTheDay

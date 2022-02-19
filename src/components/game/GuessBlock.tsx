@@ -1,4 +1,4 @@
-import { Guess } from '../../@types/Guess';
+import { Guess } from '../../types/Guess';
 
 import './GuessBlock.css';
 

@@ -2,8 +2,8 @@ import moment from 'moment-timezone';
 
 import LocalDatabase from '../libs/LocalDatabase';
 
-import { Game } from '../@types/Game';
-import { Guess } from '../@types/Guess';
+import { Game } from '../types/Game';
+import { Guess } from '../types/Guess';
 
 moment.tz.setDefault('America/Sao_Paulo');
 

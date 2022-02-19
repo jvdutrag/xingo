@@ -1,4 +1,4 @@
-import { Letter } from '../@types/Letter';
+import { Letter } from '../types/Letter';
 
 import { isAValidPortugueseWord } from './PortugueseWords';
 
