@@ -1,5 +1,4 @@
-import { useState } from 'react';
-import Countdown, { zeroPad } from 'react-countdown';
+import { useEffect, useState } from 'react';
 import { Row, Col } from 'react-bootstrap';
 import Icon from '@mdi/react';
 import {
@@ -13,7 +12,7 @@ import { InfoDialog, HelpDialog, SettingsDialog, StatsDialog } from '../dialog';
 
 import { CustomButton } from '../default'
 
-import { getNextDay } from '../../utils/Time';
+import Database from '../../utils/Database';
 
 import logo from '../../assets/images/logo.png';
 
@@ -25,18 +24,19 @@ export default function Header() {
     const [showSettingsDialog, setShowSettingsDialog] = useState(false);
     const [showStatsDialog, setShowStatsDialog] = useState(false);
 
-    const renderCountdown = ({ hours, minutes, seconds, completed }: any) => {
-        if(completed) {
-            return <span>Reinicie a página para jogar com a palavra nova!</span>
-        }
+    const shouldShowHelpScreen = () => {
+        const settings = Database.getSettings();
 
-        return (
-            <span>
-                Próxima palavra em&nbsp;
-                <strong>{zeroPad(hours)}:{zeroPad(minutes)}:{zeroPad(seconds)}</strong>
-            </span>
-        )
+        if(settings?.showHelpScreen) {
+            setShowHelpDialog(true);
+        }
     }
+
+    useEffect(() => {
+        setTimeout(() => {
+            shouldShowHelpScreen();
+        }, 2000);
+    }, []);
 
     return (
         <>
@@ -67,12 +67,6 @@ export default function Header() {
                     <CustomButton tabIndex="-1" variant="secondary" onClick={() => setShowStatsDialog(true)}>
                         <Icon path={StatsIcon} size={1} />
                     </CustomButton>
-                </Col>
-            </Row>
-
-            <Row>
-                <Col className="justify-content-center text-center">
-                    <Countdown daysInHours={true} date={getNextDay()} renderer={renderCountdown as any} />
                 </Col>
             </Row>
         </>

@@ -9,7 +9,7 @@ import {
     mdiAlertCircleOutline as ErrorIcon
 } from '@mdi/js';
 
-import { CustomModal, CustomButton } from '../default';
+import { CustomModal, CustomButton, NextGameCountdown } from '../default';
 
 import { Game } from '../../@types/Game';
 
@@ -48,7 +48,7 @@ export default function GameResultDialog({ show, handleClose, game }: Props) {
 
     return (
         <CustomModal show={show} handleClose={handleClose}>
-            <Row>
+            <Row style={{ marginBottom: '10px' }}>
                 <Col style={{ textAlign: 'center' }}>
                     <div style={{ color: game.won ? '#689c71' : '#964545' }}>
                         <Icon path={game.won ? SuccessIcon : ErrorIcon} size={4} />
@@ -69,6 +69,10 @@ export default function GameResultDialog({ show, handleClose, game }: Props) {
                             <p>Você teve 6 tentativas e errou</p>
                         )
                     }
+
+                    <div>
+                        <NextGameCountdown />
+                    </div>
                 </Col>
             </Row>
             <Row>
