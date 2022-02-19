@@ -20,6 +20,8 @@ import {
   getWordOfTheDay
 } from '../utils/Word';
 
+import Database from '../utils/Database';
+
 function App() {
   const { word, word_split: wordSplit } = getWordOfTheDay();
 
@@ -46,7 +48,13 @@ function App() {
       full_word: getGuessFullWord(currentGuess)
     }
 
-    setGuesses(currGuesses => ([...currGuesses, guess]));
+    setGuesses(currGuesses => {
+      const newGuesses = [...currGuesses, guess];
+      
+      Database.updateNotCompletedGameGuesses(newGuesses);
+
+      return newGuesses;
+    });
     setCurrentGuess([]);
   }, [guesses, wordSplit]);
 
@@ -120,12 +128,14 @@ function App() {
   /* End of work-around */
 
   const finishGame = useCallback((won: boolean) => {
-    setGame({
+    const createdGame = {
       ended: true,
       won,
       word: word ? word : '',
       guesses
-    });
+    }
+
+    setGame(createdGame);
 
     setShowResultDialog(true);
 
@@ -135,6 +145,8 @@ function App() {
     else {
       notify('error', 'Suas tentativas acabaram. Você errou a palavra');
     }
+
+    Database.addGame(createdGame);
   }, [guesses, word]);
 
   useEffect(() => {
@@ -167,13 +179,32 @@ function App() {
     return () => document.removeEventListener("keydown", handleKeyPress, false);
   }, [handleKeyPress]);
 
+  useEffect(() => {
+    Database.runSetup();
+
+    const alreadyPlayedGame = Database.getTodayGame();
+
+    const notCompletedGame = Database.getNotCompletedGameOfToday();
+
+    if(notCompletedGame && !alreadyPlayedGame) {
+      setGuesses(notCompletedGame.guesses);
+      return;
+    }
+
+    if(alreadyPlayedGame) {
+      setGame(alreadyPlayedGame);
+      setGuesses(alreadyPlayedGame.guesses);
+      setShowResultDialog(true);
+    }
+  }, []);
+
   if(!word) {
     return (
       <Container style={{ maxWidth: '600px' }}>
         <Header />
 
         <div className="justify-content-center text-center" style={{ fontSize: '20px' }}>
-          Não há nada para ver aqui ainda...
+          Não tem palavra do dia para hoje! :(
         </div>
 
         <ToastContainer pauseOnFocusLoss={false} pauseOnHover={false} />
