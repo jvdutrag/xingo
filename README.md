@@ -1,4 +1,4 @@
-![Xingo](https://i.imgur.com/Fsb2JRm.png "Xingo")
+![Xingo](https://i.imgur.com/NRC0QJd.png "Xingo")
 O [Xingo](https://xingo.site/) é um site brasileiro de advinhação diária de palavras, baseado no Wordle e no Lewdle. Porém todas as palavras são de baixo calão, vulgares e obscenas. Todos os dias uma nova palavra de baixo calão surge pra você advinhar em 6 tentativas.
 
 ### Tecnologias
