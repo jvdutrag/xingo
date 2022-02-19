@@ -27,7 +27,7 @@ export default function GameResultDialog({ show, handleClose, game }: Props) {
     }
 
     const shareActive = () => {
-        return navigator.canShare();
+        return window.navigator && window.navigator.canShare && window.navigator.canShare({ text: '' });
     }
 
     const openTwitterShare = () => {
@@ -39,7 +39,7 @@ export default function GameResultDialog({ show, handleClose, game }: Props) {
     const openShare = () => {
         const text = getGameResultText(game);
 
-        navigator.share({
+        window.navigator.share({
             title: 'Xingo - o jogo',
             text: text,
             url: 'https://xingo.site'
