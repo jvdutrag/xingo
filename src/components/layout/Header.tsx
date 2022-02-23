@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 import { Row, Col } from 'react-bootstrap';
 import Icon from '@mdi/react';
 import {
@@ -7,8 +7,9 @@ import {
     mdiCogOutline as SettingsIcon,
     mdiChartBoxOutline as StatsIcon
 } from '@mdi/js';
+import { useDetectAdBlock } from 'adblock-detect-react';
 
-import { InfoDialog, HelpDialog, SettingsDialog, StatsDialog } from '../dialog';
+import { InfoDialog, HelpDialog, SettingsDialog, StatsDialog, AdBlockDialog } from '../dialog';
 
 import { CustomButton } from '../default'
 
@@ -23,20 +24,27 @@ export default function Header() {
     const [showHelpDialog, setShowHelpDialog] = useState(false);
     const [showSettingsDialog, setShowSettingsDialog] = useState(false);
     const [showStatsDialog, setShowStatsDialog] = useState(false);
+    const [showAdBlockDialog, setShowAdBlockDialog] = useState(false);
 
-    const shouldShowHelpScreen = () => {
+    const adBlockDetected = useDetectAdBlock();
+
+    const shouldShowHelpScreen = useCallback(() => {
         const settings = Database.getSettings();
 
-        if(settings?.showHelpScreen) {
+        if(settings?.showHelpScreen && !adBlockDetected) {
             setShowHelpDialog(true);
         }
-    }
+    }, [adBlockDetected]);
 
     useEffect(() => {
         setTimeout(() => {
             shouldShowHelpScreen();
         }, 2000);
-    }, []);
+
+        if(adBlockDetected) {
+            setShowAdBlockDialog(true);
+        }
+    }, [adBlockDetected, shouldShowHelpScreen]);
 
     return (
         <>
@@ -44,6 +52,7 @@ export default function Header() {
             <StatsDialog show={showStatsDialog} handleClose={() => setShowStatsDialog(false)} />
             <HelpDialog show={showHelpDialog} handleClose={() => setShowHelpDialog(false)} />
             <InfoDialog show={showInfoDialog} handleClose={() => setShowInfoDialog(false)} />
+            <AdBlockDialog show={showAdBlockDialog} handleClose={() => setShowAdBlockDialog(false)} />
 
             <Row className="header">
                 <Col xs={3} className="header-buttons">
