@@ -9,7 +9,7 @@ type Props = {
 
 export default function AdBlockDialog({ show, handleClose }: Props) {
     return (
-        <CustomModal show={show} handleClose={handleClose} title="PERA AÍ! ✋🚫">
+        <CustomModal show={show} handleClose={handleClose} title="PERA AÍ! ✋🚫" style={{ backgroundColor: '#692c2c' }}>
             <Row>
                 <Col style={{ textAlign: 'center' }}>
                     <p>Percebi que você está usando um bloqueador de anúncios!</p>

@@ -6,10 +6,11 @@ type Props = {
     title?: string,
     children?: React.ReactNode,
     show: boolean,
-    handleClose: () => void
+    handleClose: () => void,
+    [x: string]: any
 }
 
-export default function BaseModal ({ title, children, handleClose, show }: Props) {
+export default function BaseModal ({ title, children, handleClose, show, ...rest }: Props) {
     return (
         <Modal
             size="lg"
@@ -18,6 +19,7 @@ export default function BaseModal ({ title, children, handleClose, show }: Props
             centered={true}
             show={show}
             onHide={handleClose}
+            {...rest}
         >
             <Modal.Header closeButton>
                 <Modal.Title>{title}</Modal.Title>
