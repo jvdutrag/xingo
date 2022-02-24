@@ -41,8 +41,7 @@ export default function GameResultDialog({ show, handleClose, game }: Props) {
 
         navigator.share({
             title: 'Xingo - o jogo',
-            text: text,
-            url: 'https://xingo.site'
+            text: text
         });
     }
 
