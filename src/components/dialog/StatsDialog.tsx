@@ -53,7 +53,7 @@ export default function StatsDialog({ show, handleClose }: Props) {
     useEffect(() => {
         const previousGames = Database.getGames();
 
-        if(!previousGames.length) {
+        if(!previousGames || !previousGames.length) {
             return;
         }
 
