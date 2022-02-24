@@ -38,9 +38,9 @@ export function notify(type: string, message: string) {
 export function getGameResultText(game: Game) {
     const getEmojiByCondition = (condition: string) => {
         switch (condition) {
-            case 'correct': return '🟩';
-            case 'wrong': return '🟥';
-            case 'displaced': return '🟨';
+            case 'correct': return '🟢';
+            case 'wrong': return '🔴';
+            case 'displaced': return '🟡';
             default: return '';
         }
     }
