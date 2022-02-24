@@ -27,9 +27,9 @@ class LocalDatabase {
         return true;
     }
 
-    public static findAllInTable(tableName: string): any[] {
+    public static findAllInTable(tableName: string): any[] | void {
         if(!this.tableExists(tableName)) {
-            throw new Error('Table does not exists');
+            return;
         }
 
         return JSON.parse(localStorage.getItem(tableName)!);

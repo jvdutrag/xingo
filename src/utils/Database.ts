@@ -26,7 +26,7 @@ export default class Database {
     }
     
     public static getGames(): Game[] {
-        return LocalDatabase.findAllInTable('game');
+        return LocalDatabase.findAllInTable('game') as Game[];
     }
     
     public static getTodayGame() {
