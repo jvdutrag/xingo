@@ -194,7 +194,10 @@ function App() {
     if(alreadyPlayedGame) {
       setGame(alreadyPlayedGame);
       setGuesses(alreadyPlayedGame.guesses);
-      setShowResultDialog(true);
+
+      setTimeout(() => {
+        setShowResultDialog(true);
+      }, 1500);
     }
   }, []);
 
