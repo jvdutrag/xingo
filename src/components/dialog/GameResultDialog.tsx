@@ -41,7 +41,8 @@ export default function GameResultDialog({ show, handleClose, game }: Props) {
 
         navigator.share({
             title: 'Xingo - o jogo',
-            text: text
+            text: text,
+            url: 'https://xingo.site'
         });
     }
 
@@ -84,7 +85,7 @@ export default function GameResultDialog({ show, handleClose, game }: Props) {
                 {
                     shareActive() && (
                         <Col className="justify-content-center text-center">
-                            <CustomButton variant="secondary" onClick={() => openShare}>
+                            <CustomButton variant="secondary" onClick={() => openShare()}>
                                 <Icon path={ShareIcon} size={1} style={{ marginRight: '5px' }} />
                                 Compartilhar
                             </CustomButton>
