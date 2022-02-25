@@ -1,3 +1,11 @@
+import { useEffect } from "react"
+
+declare global {
+    interface Window {
+        adsbygoogle: any;
+    }
+}
+
 type Props = {
     slot: string,
     format: string,
@@ -6,6 +14,11 @@ type Props = {
 }
 
 export default function AdSenseBlock({ slot, format, width, height }: Props) {
+    useEffect(() => {
+        if (typeof window !== 'undefined') {
+        } (window.adsbygoogle = window.adsbygoogle || []).push({});
+    }, []);
+
     return (
         <div style={{ width, height }}>
             <ins
