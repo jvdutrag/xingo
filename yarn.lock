@@ -1109,6 +1109,13 @@
   dependencies:
     postcss-value-parser "^4.2.0"
 
+"@ctrl/react-adsense@^1.5.0":
+  version "1.5.0"
+  resolved "https://registry.yarnpkg.com/@ctrl/react-adsense/-/react-adsense-1.5.0.tgz#9c2b17bf23db96d8c5ad7ce5da8b28e09b0865c4"
+  integrity sha512-qHVvBAQQE0hS/fyfYHQvHxDIauprYkc57YvfPKy5T/aioedGqWgMf7g0/+Al3Blh6taDLZwP4JU6Xszq/ycqZQ==
+  dependencies:
+    tslib "^1.14.1"
+
 "@eslint/eslintrc@^1.1.0":
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/@eslint/eslintrc/-/eslintrc-1.1.0.tgz#583d12dbec5d4f22f333f9669f7d0b7c7815b4d3"
@@ -8394,7 +8401,7 @@ tsconfig-paths@^3.12.0:
     minimist "^1.2.0"
     strip-bom "^3.0.0"
 
-tslib@^1.8.1:
+tslib@^1.14.1, tslib@^1.8.1:
   version "1.14.1"
   resolved "https://registry.yarnpkg.com/tslib/-/tslib-1.14.1.tgz#cf2d38bdc34a134bcaf1091c41f6619e2f672d00"
   integrity sha512-Xni35NKzjgMrwevysHTCArtLDpPvye8zV/0E4EyYn43P7/7qvQwPh9BGkHewbMulVntbigmcT7rdX3BNo9wRJg==

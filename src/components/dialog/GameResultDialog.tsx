@@ -1,5 +1,5 @@
 import { Row, Col } from 'react-bootstrap';
-
+import { Adsense } from '@ctrl/react-adsense';
 import Icon from '@mdi/react';
 
 import { 
@@ -49,6 +49,13 @@ export default function GameResultDialog({ show, handleClose, game }: Props) {
         <CustomModal show={show} handleClose={handleClose}>
             <Row style={{ marginBottom: '10px' }}>
                 <Col style={{ textAlign: 'center' }}>
+                    <div style={{ height: '150px' }}>
+                        <Adsense
+                            client="ca-pub-1539700405631954"
+                            slot="7901285564"
+                        />
+                    </div>
+
                     <div style={{ color: game.won ? '#689c71' : '#964545' }}>
                         <Icon path={game.won ? SuccessIcon : ErrorIcon} size={4} />
                     </div>
