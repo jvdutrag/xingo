@@ -48,13 +48,6 @@ export default function GameResultDialog({ show, handleClose, game }: Props) {
         <CustomModal show={show} handleClose={handleClose}>
             <Row style={{ marginBottom: '10px' }}>
                 <Col style={{ textAlign: 'center' }}>
-                    <AdSenseBlock
-                        slot="7901285564"
-                        format="auto"
-                        height="150px"
-                        width="100%"
-                    />
-
                     <div style={{ color: game.won ? '#689c71' : '#964545' }}>
                         <Icon path={game.won ? SuccessIcon : ErrorIcon} size={4} />
                     </div>
@@ -97,6 +90,14 @@ export default function GameResultDialog({ show, handleClose, game }: Props) {
                         </Col>
                     )
                 }
+            </Row>
+            <Row>
+                <AdSenseBlock
+                    slot="7901285564"
+                    format="auto"
+                    height="150px"
+                    width="100%"
+                />
             </Row>
         </CustomModal>
     );
