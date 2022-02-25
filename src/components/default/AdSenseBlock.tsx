@@ -17,6 +17,7 @@ export default function AdSenseBlock({ slot, format, width, height }: Props) {
                 style={{
                     width: '100%',
                     height: 'auto',
+                    display: 'block'
                 }}
             />
         </div>
