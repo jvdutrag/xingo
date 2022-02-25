@@ -1,4 +1,4 @@
-import { useEffect } from "react"
+import { useEffect } from "react";
 
 declare global {
     interface Window {
@@ -15,9 +15,8 @@ type Props = {
 
 export default function AdSenseBlock({ slot, format, width, height }: Props) {
     useEffect(() => {
-        if (typeof window !== 'undefined') {
-            (window.adsbygoogle = window.adsbygoogle || []).push({})
-        }
+        window.adsbygoogle = window.adsbygoogle || []
+        window.adsbygoogle.push({})
     }, []);
 
     return (
