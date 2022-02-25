@@ -92,12 +92,14 @@ export default function GameResultDialog({ show, handleClose, game }: Props) {
                 }
             </Row>
             <Row>
-                <AdSenseBlock
-                    slot="7901285564"
-                    format="auto"
-                    height="150px"
-                    width="100%"
-                />
+                <Col>
+                    <AdSenseBlock
+                        slot="7901285564"
+                        format="auto"
+                        height="150px"
+                        width="100%"
+                    />
+                </Col>
             </Row>
         </CustomModal>
     );
