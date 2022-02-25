@@ -1,5 +1,4 @@
 import { Row, Col } from 'react-bootstrap';
-import { Adsense } from '@ctrl/react-adsense';
 import Icon from '@mdi/react';
 
 import { 
@@ -9,7 +8,7 @@ import {
     mdiAlertCircleOutline as ErrorIcon
 } from '@mdi/js';
 
-import { CustomModal, CustomButton, NextGameCountdown } from '../default';
+import { CustomModal, CustomButton, NextGameCountdown, AdSenseBlock } from '../default';
 
 import { Game } from '../../types/Game';
 
@@ -49,12 +48,12 @@ export default function GameResultDialog({ show, handleClose, game }: Props) {
         <CustomModal show={show} handleClose={handleClose}>
             <Row style={{ marginBottom: '10px' }}>
                 <Col style={{ textAlign: 'center' }}>
-                    <div style={{ height: '150px' }}>
-                        <Adsense
-                            client="ca-pub-1539700405631954"
-                            slot="7901285564"
-                        />
-                    </div>
+                    <AdSenseBlock
+                        slot="7901285564"
+                        format="auto"
+                        height="150px"
+                        width="100%"
+                    />
 
                     <div style={{ color: game.won ? '#689c71' : '#964545' }}>
                         <Icon path={game.won ? SuccessIcon : ErrorIcon} size={4} />
