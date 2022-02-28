@@ -1,6 +1,6 @@
 import Encryptor from 'simple-crypto-js';
 
-import dailyWords from '../assets/daily_words.json';
+import dailyWords from '../assets/words.json';
 
 import { getToday } from './Time';
 
