@@ -16,5 +16,5 @@ export default function NextGameCountdown () {
         )
     }
 
-    return <Countdown daysInHours={true} date={getNextDay()} renderer={renderCountdown as any} />
+    return <Countdown daysInHours={true} date={new Date(getNextDay())} renderer={renderCountdown as any} />
 }
