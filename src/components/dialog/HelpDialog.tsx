@@ -92,7 +92,7 @@ export default function HelpDialog({ show, handleClose }: Props) {
         <CustomModal show={show} handleClose={handleClose} title="Como jogar">
             <Row>
                 <Col style={{ textAlign: 'center' }}>
-                    <p>Todos os dias uma nova palavra de baixo calão surge pra você advinhar em 6 tentativas.</p>
+                    <p>Todos os dias uma nova palavra de baixo calão ou chulas surge pra você advinhar em 6 tentativas.</p>
                     <p>Cada tentativa deve ser uma palavra válida de 5 letras. Acentos e cedilha são desconsiderados.</p>
                     <p>Ao efetuar uma tentativa, a cor das letras irá indicar se você está perto da resposta ou não.</p>
                     

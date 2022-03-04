@@ -72,11 +72,12 @@ export default function GameResultDialog({ show, handleClose, game }: Props) {
                     <p>A palavra do dia era: <strong>{game.word}</strong></p>
                     {
                         game.won ? (
-                            <p>Você acertou em {game.guesses.length} de 6 tentativas</p>
+                            <p>Você acertou em {game.guesses.length} de 6 tentativas!</p>
                         ) : (
-                            <p>Você teve 6 tentativas e errou</p>
+                            <p>Você teve 6 tentativas e errou. Boa sorte na próxima!</p>
                         )
                     }
+                    <p><strong>Lembre-se:</strong> O jogo não é só sobre xingamentos. Não se tem xingamentos suficientes com 5 letras no Português. É também sobre palavras chulas ou obscenas.</p>
 
                     <div>
                         <NextGameCountdown />
