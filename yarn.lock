@@ -7319,6 +7319,11 @@ react-lifecycles-compat@^3.0.4:
   resolved "https://registry.yarnpkg.com/react-lifecycles-compat/-/react-lifecycles-compat-3.0.4.tgz#4f1a273afdfc8f3488a8c516bfda78f872352362"
   integrity sha512-fBASbA6LnOU9dOU2eW7aQ8xmYBSXUIWr+UmF9b1efZBazGNO+rcXT/icdKnYm2pTwcRylVUYwW7H1PHfLekVzA==
 
+react-onesignal@^2.0.3:
+  version "2.0.3"
+  resolved "https://registry.yarnpkg.com/react-onesignal/-/react-onesignal-2.0.3.tgz#3c4cd656f811c3502f40b61854fbbfb86bbf499c"
+  integrity sha512-zX27Hig31g7wypEaJSzgSIjO/DsxqPqTaJA1/l1T0qmbRTyabL/FslWjjnPQDvQQHtix+KNw8q4pQ5BzGPXEig==
+
 react-refresh@^0.11.0:
   version "0.11.0"
   resolved "https://registry.yarnpkg.com/react-refresh/-/react-refresh-0.11.0.tgz#77198b944733f0f1f1a90e791de4541f9f074046"
