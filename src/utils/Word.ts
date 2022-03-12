@@ -1,6 +1,6 @@
 import Encryptor from 'simple-crypto-js';
 
-import dailyWords from '../assets/word_list.json';
+import dailyWords from '../assets/words.json';
 
 import { getToday } from './Time';
 
@@ -24,4 +24,16 @@ export function getWordOfTheDay() {
         word: decryptedWordName.toUpperCase(),
         word_split: decryptedWordName.toUpperCase().split('')
     }
+}
+
+export function getWordOfTheDayDescription() {
+    const today =  getToday();
+
+    const word = dailyWords.find(word => word.date === today) || null;
+
+    if(!word) {
+        return null;
+    }
+
+    return word.description;
 }

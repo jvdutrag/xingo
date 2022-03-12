@@ -14,6 +14,8 @@ import { Game } from '../../types/Game';
 
 import { getGameResultText, getShareOnTwitterURL } from '../../utils';
 
+import { getWordOfTheDayDescription } from '../../utils/Word'
+
 type Props = {
     show: boolean,
     handleClose: () => void,
@@ -69,7 +71,14 @@ export default function GameResultDialog({ show, handleClose, game }: Props) {
                         )
                     }
 
-                    <p>A palavra do dia era: <strong>{game.word}</strong></p>
+                    <p>
+                        A palavra do dia era: <strong>{game.word}</strong>
+                        {getWordOfTheDayDescription() && (
+                            <p><strong>Significado:</strong> {getWordOfTheDayDescription()}</p>
+                        )}
+                        
+                        <br />
+                    </p>
                     {
                         game.won ? (
                             <p>Você acertou em {game.guesses.length} de 6 tentativas!</p>
@@ -77,7 +86,7 @@ export default function GameResultDialog({ show, handleClose, game }: Props) {
                             <p>Você teve 6 tentativas e errou. Boa sorte na próxima!</p>
                         )
                     }
-                    <p><strong>Lembre-se:</strong> O jogo não é só sobre xingamentos. Não se tem xingamentos suficientes com 5 letras no Português. É também sobre palavras chulas ou obscenas.</p>
+                    <p><strong>Lembre-se:</strong> O jogo não é só sobre xingamentos. É também sobre palavras chulas ou obscenas.</p>
 
                     <div>
                         <NextGameCountdown />
