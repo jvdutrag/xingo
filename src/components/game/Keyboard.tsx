@@ -38,21 +38,17 @@ export default function Keyboard({ onKeyClick, disabled, guesses }: Props) {
         guesses.forEach(guess => {
             guess.letters.forEach(eachLetter => {
                 if(eachLetter.letter === key) {
-                    const alreadyInConditions = conditions.find(condition => condition.letter === eachLetter.letter);
-
-                    if(!alreadyInConditions) {
-                        conditions.push({
-                            key,
-                            condition: eachLetter.condition
-                        });
-                    }
+                    conditions.push({
+                        key,
+                        condition: eachLetter.condition
+                    });
                 }
             });
         });
 
-        const keyHasCondition = conditions.find(condition => condition.key === key);
+        const keyConditions = conditions.filter(condition => condition.key === key);
 
-        return keyHasCondition ? keyHasCondition.condition : '';
+        return keyConditions.length ? keyConditions[keyConditions.length - 1].condition : '';
     }
 
     return (
