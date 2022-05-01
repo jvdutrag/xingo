@@ -207,7 +207,11 @@ function App() {
         <Header />
 
         <div className="justify-content-center text-center" style={{ fontSize: '20px' }}>
-          Não tem palavra do dia para hoje! :(
+          <p>
+            Oooops! Deu merda...<br></br>
+            Não consegui carregar a palavra do dia pra hoje... :(<br></br>
+            Tente limpar o cache do seu navegador ou abra o jogo em aba anônima<br></br>
+          </p>
         </div>
 
         <ToastContainer pauseOnFocusLoss={false} pauseOnHover={false} />
