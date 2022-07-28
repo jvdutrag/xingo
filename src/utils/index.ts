@@ -49,7 +49,7 @@ export function getGameResultText(game: Game) {
 
     const today = moment().format('DD/MM');
 
-    let text = `joguei verbio.site ${game.won ? game.guesses.length : 'X'}/${NUMBER_OF_MAX_GUESSES} - ${today}\n\n`;
+    let text = `joguei Verbio ${game.won ? game.guesses.length : 'X'}/${NUMBER_OF_MAX_GUESSES} - ${today}\n\n`;
     
     text += game.guesses.map(guess => {
         return guess.letters.map(letter => getEmojiByCondition(letter.condition)).join('') + '\n';
