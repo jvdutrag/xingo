@@ -61,6 +61,22 @@ export default function StatsDialog({ show, handleClose }: Props) {
             {
                 number: 3,
                 count: 0
+            },
+            {
+                number: 4,
+                count: 0
+            },
+            {
+                number: 4,
+                count: 0
+            },
+            {
+                number: 5,
+                count: 0
+            },
+            {
+                number: 6,
+                count: 0
             }
         ]
 
