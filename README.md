@@ -1,6 +1,6 @@
 ![Verbio](https://i.imgur.com/Yaq34uM.png "Verbio")
 
-O [Verbio](https://verbio.site/) é um site brasileiro de advinhação diária de palavras, baseado no Wordle e no Lewdle. Porém todas as palavras são de baixo calão, vulgares e obscenas. Todos os dias uma nova palavra de baixo calão surge pra você advinhar em 6 tentativas.
+O [Verbio](https://verbio.site/) é um site brasileiro de advinhação diária de palavras.
 
 ### Tecnologias
 É bacana ressaltar que o projeto foi criado do zero, porém inspirado pelas outras variantes do mesmo jogo. O jogo funciona 100% client-side, sem nenhuma comunicação com nenhum servidor. O armazenamento dos dados é feito em Local Storage. O único servidor existente é o responsável por renderizar a aplicação, hospedada pelo Github Pages. As tecnologias utilizadas são React com TypeScript. 

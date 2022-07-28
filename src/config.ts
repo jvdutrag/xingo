@@ -2,7 +2,7 @@ import { Guess } from './types/Guess'
 
 export const NUMBER_OF_LETTERS_OF_WORD = 6
 
-export const NUMBER_OF_MAX_GUESSES = 3
+export const NUMBER_OF_MAX_GUESSES = 4
 
 export const GUESSES_FOR_HINT_TO_SHOW = 1
 

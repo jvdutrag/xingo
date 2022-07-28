@@ -243,8 +243,8 @@ function App() {
       <Container style={{ maxWidth: '600px' }}>
         <Alert variant="warning" style={{ marginTop: 25 }}>
           <span>
-            A partir de 28/07/2022, o <strong>XINGO</strong> é <strong>VERBIO</strong>. Encontre o verbo do dia!<br />
-            Se tiver qualquer problema, envie uma DM no Twitter: @jvdutrag
+            Agora o <strong>XINGO</strong> é <strong>VERBIO</strong>. Encontre o verbo do dia!<br />
+            Foram seis meses de Xingo, e os xingamentos em português se esgotaram... 😥 Tivemos de reinventar!
           </span>
         </Alert>
 
