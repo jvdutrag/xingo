@@ -25,6 +25,10 @@ import {
 import Database from '../utils/Database';
 
 function App() {
+  // Temp -- delete after
+  Database.resetStats();
+  //
+
   const { word, word_split: wordSplit } = getWordOfTheDay();
 
   const [currentGuess, setCurrentGuess] = useState<string[]>([]);
@@ -194,10 +198,6 @@ function App() {
 
   useEffect(() => {
     Database.runSetup();
-
-    // Temp -- delete after
-    Database.resetStats();
-    //
 
     const alreadyPlayedGame = Database.getTodayGame();
 
