@@ -40,7 +40,7 @@ export default function StatsDialog({ show, handleClose }: Props) {
 
     useEffect(() => {
         let previousGames = Database.getGames();
-        previousGames = previousGames ? previousGames.filter(game => !game.gaveUp) : [];
+        previousGames = previousGames ? previousGames.filter(game => !game?.gaveUp) : [];
 
         if(!previousGames || !previousGames.length) {
             return;
