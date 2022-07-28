@@ -92,4 +92,31 @@ export default class Database {
             });
         }
     }
+
+    public static resetStats() {
+        const games = this.getGames()
+
+        if(!games.length) {
+            return
+        }
+
+        const lastDayAsXingo = '2022-07-27'
+        const lastPlayedDay = games[games.length - 1].date
+
+        const shouldReset = moment(lastPlayedDay).isBefore(lastDayAsXingo)
+
+        if(shouldReset) {
+            LocalDatabase.dropAllTables();
+    
+            this.createAllTables();
+    
+            LocalDatabase.insertInTable('setting', [
+                {
+                    id: 1,
+                    isColorBlindModeActive: false,
+                    showHelpScreen: true
+                }
+            ]);
+        }
+    }
 }

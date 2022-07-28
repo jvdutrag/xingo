@@ -34,24 +34,13 @@ export default function StatsDialog({ show, handleClose }: Props) {
             {
                 number: 3,
                 count: 0
-            },
-            {
-                number: 4,
-                count: 0
-            },
-            {
-                number: 5,
-                count: 0
-            },
-            {
-                number: 6,
-                count: 0
             }
         ]
     });
 
     useEffect(() => {
-        const previousGames = Database.getGames();
+        let previousGames = Database.getGames();
+        previousGames = previousGames ? previousGames.filter(game => !game.gaveUp) : [];
 
         if(!previousGames || !previousGames.length) {
             return;
@@ -71,18 +60,6 @@ export default function StatsDialog({ show, handleClose }: Props) {
             },
             {
                 number: 3,
-                count: 0
-            },
-            {
-                number: 4,
-                count: 0
-            },
-            {
-                number: 5,
-                count: 0
-            },
-            {
-                number: 6,
                 count: 0
             }
         ]
@@ -110,10 +87,10 @@ export default function StatsDialog({ show, handleClose }: Props) {
                             <>
                                 <Row style={{ textAlign: 'center' }}>
                                     <Col>
-                                        Você jogou o Xingo <strong style={{ color: '#ce61f2' }}>{data.games_count}</strong> vez(es)
+                                        Você jogou <strong style={{ color: '#9998b3' }}>{data.games_count}</strong> vez(es)
                                     </Col>
                                     <Col>
-                                        Sua taxa de vitória está em <strong style={{ color: '#ce61f2' }}>{data.win_rate}%</strong>
+                                        Sua taxa de vitória está em <strong style={{ color: '#9998b3' }}>{data.win_rate}%</strong>
                                     </Col>
                                 </Row>
                                 <hr />
@@ -122,42 +99,21 @@ export default function StatsDialog({ show, handleClose }: Props) {
                                         {
                                             data.guesses_stats[0].count > 0 && (
                                                 <p>
-                                                    Em <strong style={{ color: '#ce61f2' }}>{data.guesses_stats[0].count}</strong> jogo(s), você precisou de 1 tentativa para acertar
+                                                    Em <strong style={{ color: '#9998b3' }}>{data.guesses_stats[0].count}</strong> jogo(s), você precisou de 1 tentativa para acertar
                                                 </p>
                                             )
                                         }
                                         {
                                             data.guesses_stats[1].count > 0 && (
                                                 <p>
-                                                    Em <strong style={{ color: '#ce61f2' }}>{data.guesses_stats[1].count}</strong> jogo(s), você precisou de 2 tentativas para acertar
+                                                    Em <strong style={{ color: '#9998b3' }}>{data.guesses_stats[1].count}</strong> jogo(s), você precisou de 2 tentativas para acertar
                                                 </p>
                                             )
                                         }
                                         {
                                             data.guesses_stats[2].count > 0 && (
                                                 <p>
-                                                    Em <strong style={{ color: '#ce61f2' }}>{data.guesses_stats[2].count}</strong> jogo(s), você precisou de 3 tentativas para acertar
-                                                </p>
-                                            )
-                                        }
-                                        {
-                                            data.guesses_stats[3].count > 0 && (
-                                                <p>
-                                                    Em <strong style={{ color: '#ce61f2' }}>{data.guesses_stats[3].count}</strong> jogo(s), você precisou de 4 tentativas para acertar
-                                                </p>
-                                            )
-                                        }
-                                        {
-                                            data.guesses_stats[4].count > 0 && (
-                                                <p>
-                                                    Em <strong style={{ color: '#ce61f2' }}>{data.guesses_stats[4].count}</strong> jogo(s), você precisou de 5 tentativas para acertar
-                                                </p>
-                                            )
-                                        }
-                                        {
-                                            data.guesses_stats[5].count > 0 && (
-                                                <p>
-                                                    Em <strong style={{ color: '#ce61f2' }}>{data.guesses_stats[5].count}</strong> jogo(s), você precisou de 6 tentativas para acertar
+                                                    Em <strong style={{ color: '#9998b3' }}>{data.guesses_stats[2].count}</strong> jogo(s), você precisou de 3 tentativas para acertar
                                                 </p>
                                             )
                                         }
@@ -165,7 +121,7 @@ export default function StatsDialog({ show, handleClose }: Props) {
                                 </Row>
                             </>
                         ) : (
-                            <p>Não há estatísticas a mostrar!</p>
+                            <p style={{ textAlign: 'center' }}>Não há estatísticas a mostrar!</p>
                         )
                     }
                 </Col>

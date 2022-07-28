@@ -2,6 +2,8 @@ import { Letter } from '../types/Letter';
 
 import { isAValidPortugueseWord } from './PortugueseWords';
 
+import { NUMBER_OF_LETTERS_OF_WORD } from '../config'
+
 export function getGuessFullWord(guess: string[]) {
     return guess.join('');
 }
@@ -9,7 +11,7 @@ export function getGuessFullWord(guess: string[]) {
 export function isGuessValid(guess: string[]) {
     const word = getGuessFullWord(guess);
 
-    const isWordValid = isAValidPortugueseWord(word) && word.length === 5;
+    const isWordValid = isAValidPortugueseWord(word) && word.length === NUMBER_OF_LETTERS_OF_WORD;
 
     return isWordValid;
 }
@@ -18,7 +20,7 @@ export function parseGuess(letters: string[], wordSplit: string[]): Letter[] {
     const parsed: any[] = [];
     const missingLetters: any[] = [];
 
-    for (let i = 0; i < 5; i++) {
+    for (let i = 0; i < NUMBER_OF_LETTERS_OF_WORD; i++) {
         const isCorrect = letters[i] === wordSplit[i] ? true : false;
 
         const condition = isCorrect ? 'correct' : 'wrong';

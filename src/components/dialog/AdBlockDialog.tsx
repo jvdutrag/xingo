@@ -13,7 +13,7 @@ export default function AdBlockDialog({ show, handleClose }: Props) {
             <Row>
                 <Col style={{ textAlign: 'center' }}>
                     <p>Percebi que você está usando um bloqueador de anúncios!</p>
-                    <p>Adicione o <strong>xingo.site</strong> como exceção em sua extensão e apoie nosso projeto vendo os anúncios!</p>
+                    <p>Adicione o <strong>verbio.site</strong> como exceção em sua extensão e apoie nosso projeto vendo os anúncios!</p>
                     <p>Ajuda nóis... 😥</p>
                 </Col>
             </Row>

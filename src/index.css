@@ -2,8 +2,7 @@
 
 body {
   color: #fff;
-  background: rgb(36,36,36);
-  background: linear-gradient(0deg, rgba(36,36,36,1) 0%, rgba(0,0,0,1) 100%) fixed;
+  background: #5b5a75;
   font-family: 'Varela Round', sans-serif;
 }
 
@@ -14,7 +13,7 @@ a {
 }
 
 a:hover {
-  color: #ce61f2;
+  color: #9998b3;
 }
 
 :root {

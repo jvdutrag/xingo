@@ -5,6 +5,8 @@ import { Letter } from '../../types/Letter';
 
 import GuessBlock from './GuessBlock';
 
+import { NUMBER_OF_MAX_GUESSES } from '../../config'
+
 type Props = {
     guesses: Guess[],
     currentGuess: string[],
@@ -29,8 +31,8 @@ export default function GameContainer({ currentGuess, guesses, gameEnded }: Prop
                 )
             }
             {
-                guesses.length !== 6 && (
-                    [...new Array(gameEnded ? Math.abs(guesses.length - 6) : Math.abs(guesses.length - 5))].map((_, index) => (
+                guesses.length !== NUMBER_OF_MAX_GUESSES && (
+                    [...new Array(gameEnded ? Math.abs(guesses.length - NUMBER_OF_MAX_GUESSES) : Math.abs(guesses.length - (NUMBER_OF_MAX_GUESSES - 1)))].map((_, index) => (
                         <Col xs={12} key={index}>
                             <GuessBlock placeholder={true} />
                         </Col>

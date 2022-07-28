@@ -4,6 +4,8 @@ import { toast } from 'react-toastify';
 import { AlertType } from '../types/AlertType';
 import { Game } from '../types/Game';
 
+import { NUMBER_OF_MAX_GUESSES } from '../config'
+
 export function isPressedKeyAValidLetter(key: string) {
     return key.length === 1 && key.match(/^[a-z]+$/i);
 }
@@ -39,7 +41,7 @@ export function getGameResultText(game: Game) {
     const getEmojiByCondition = (condition: string) => {
         switch (condition) {
             case 'correct': return '🟢';
-            case 'wrong': return '🔴';
+            case 'wrong': return '⚫';
             case 'displaced': return '🟡';
             default: return '';
         }
@@ -47,7 +49,7 @@ export function getGameResultText(game: Game) {
 
     const today = moment().format('DD/MM');
 
-    let text = `joguei xingo.site ${game.won ? game.guesses.length : 'X'}/6 - ${today}\n\n`;
+    let text = `joguei verbio.site ${game.won ? game.guesses.length : 'X'}/${NUMBER_OF_MAX_GUESSES} - ${today}\n\n`;
     
     text += game.guesses.map(guess => {
         return guess.letters.map(letter => getEmojiByCondition(letter.condition)).join('') + '\n';

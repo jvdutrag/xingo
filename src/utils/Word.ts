@@ -26,14 +26,14 @@ export function getWordOfTheDay() {
     }
 }
 
-export function getWordOfTheDayDescription() {
+export function getWordOfTheDaySynonymList() {
     const today =  getToday();
 
     const word = dailyWords.find(word => word.date === today) || null;
 
     if(!word) {
-        return null;
+        return [];
     }
 
-    return word.description;
+    return word.synonyms;
 }

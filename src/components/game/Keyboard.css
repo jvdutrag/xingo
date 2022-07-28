@@ -35,7 +35,8 @@
     font-weight: bold;
     margin: 3px;
     border-radius: 5px;
-    background-color:rgba(71, 71, 71, 0.5);
+    background-color: #9998b3;
+    color: #fff;
     cursor: pointer;
 }
 
@@ -44,7 +45,7 @@
 }
 
 .key.wrong {
-    background-color: #692c2c;
+    background-color: #6f6f6f;
 }
 
 .key.displaced {
@@ -58,5 +59,5 @@
 }
 
 .key.action-key.action-key-send {
-    background-color: #961dbd;
+    background-color: #7e7cbc;
 }

@@ -4,6 +4,8 @@ import { Button } from 'react-bootstrap';
 const styles = StyleSheet.create({
     custom: {
         color: 'rgba(202, 202, 202, 1)',
+        backgroundColor: 'transparent',
+        borderColor: 'rgba(202, 202, 202, 1)',
         ':focus, :active': {
             outline: 'none',
             boxShadow: 'none'
@@ -11,7 +13,7 @@ const styles = StyleSheet.create({
     },
 
     secondary: {
-        backgroundColor: 'transparent',
+        backgroundColor: 'rgba(71, 71, 71, 0.8)',
         borderColor: 'rgba(71, 71, 71, 0.8)',
         ':hover': {
             backgroundColor: 'rgba(71, 71, 71, 0.8)'
@@ -19,10 +21,10 @@ const styles = StyleSheet.create({
     },
 
     primary: {
-        backgroundColor: '#961dbd',
-        borderColor: '#74248f',
+        backgroundColor: '#c3c2e5',
+        borderColor: '#7e7cbc',
         ':hover': {
-            backgroundColor: '#74248f'
+            backgroundColor: '#c3c2e5'
         }
     }
 });

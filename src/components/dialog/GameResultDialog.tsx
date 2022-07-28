@@ -14,7 +14,7 @@ import { Game } from '../../types/Game';
 
 import { getGameResultText, getShareOnTwitterURL } from '../../utils';
 
-import { getWordOfTheDayDescription } from '../../utils/Word'
+import { NUMBER_OF_MAX_GUESSES } from '../../config'
 
 type Props = {
     show: boolean,
@@ -41,7 +41,7 @@ export default function GameResultDialog({ show, handleClose, game }: Props) {
         const text = getGameResultText(game);
 
         navigator.share({
-            title: 'Xingo - o jogo',
+            title: 'Verbio - o jogo',
             text: text
         });
     }
@@ -73,21 +73,15 @@ export default function GameResultDialog({ show, handleClose, game }: Props) {
 
                     <p>
                         A palavra do dia era: <strong>{game.word}</strong>
-                        {getWordOfTheDayDescription() && (
-                            <p><strong>Significado:</strong> {getWordOfTheDayDescription()}</p>
-                        )}
-                        
                         <br />
                     </p>
                     {
                         game.won ? (
-                            <p>Você acertou em {game.guesses.length} de 6 tentativas!</p>
+                            <p>Você acertou em {game.guesses.length} de {NUMBER_OF_MAX_GUESSES} tentativas!</p>
                         ) : (
-                            <p>Você teve 6 tentativas e errou. Boa sorte na próxima!</p>
+                            <p>Você teve {NUMBER_OF_MAX_GUESSES} tentativas e errou. Boa sorte na próxima!</p>
                         )
                     }
-                    <p><strong>Lembre-se:</strong> O jogo não é só sobre xingamentos. É também sobre palavras chulas ou obscenas.</p>
-
                     <div>
                         <NextGameCountdown />
                     </div>

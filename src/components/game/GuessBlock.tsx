@@ -1,5 +1,7 @@
 import { Guess } from '../../types/Guess';
 
+import { NUMBER_OF_LETTERS_OF_WORD } from '../../config'
+
 import './GuessBlock.css';
 
 type Props = {
@@ -33,21 +35,13 @@ export default function GuessBlock({ guess, current, placeholder }: Props) {
         return (
             <div className="guess-block-container">
                 <div className="guess-block">
-                    <div className="letter">
-                        <span></span>
-                    </div>
-                    <div className="letter">
-                        <span></span>
-                    </div>
-                    <div className="letter">
-                        <span></span>
-                    </div>
-                    <div className="letter">
-                        <span></span>
-                    </div>
-                    <div className="letter">
-                        <span></span>
-                    </div>
+                    {
+                        Array.from({ length: NUMBER_OF_LETTERS_OF_WORD }, (_, index) => (
+                            <div key={index} className="letter">
+                                <span></span>
+                            </div>
+                        ))
+                    }
                 </div>
             </div>
         )
@@ -60,31 +54,15 @@ export default function GuessBlock({ guess, current, placeholder }: Props) {
     return (
         <div className="guess-block-container">
             <div className={`guess-block ${current ? 'current' : ''}`}>
-                <div className={`letter ${getLetterValidationClassName(guess, 0)}`}>
-                    <span>
-                        { getLetter(guess, 0) }
-                    </span>
-                </div>
-                <div className={`letter ${getLetterValidationClassName(guess, 1)}`}>
-                    <span>
-                        { getLetter(guess, 1) }
-                    </span>
-                </div>
-                <div className={`letter ${getLetterValidationClassName(guess, 2)}`}>
-                    <span>
-                        { getLetter(guess, 2) }
-                    </span>
-                </div>
-                <div className={`letter ${getLetterValidationClassName(guess, 3)}`}>
-                    <span>
-                        { getLetter(guess, 3) }
-                    </span>
-                </div>
-                <div className={`letter ${getLetterValidationClassName(guess, 4)}`}>
-                    <span>
-                        { getLetter(guess, 4) }
-                    </span>
-                </div>
+                {
+                    Array.from({ length: NUMBER_OF_LETTERS_OF_WORD }, (_, index) => (
+                        <div key={index} className={`letter ${getLetterValidationClassName(guess, index)}`}>
+                            <span>
+                                { getLetter(guess, index) }
+                            </span>
+                        </div>
+                    ))
+                }
             </div>
         </div>
     )

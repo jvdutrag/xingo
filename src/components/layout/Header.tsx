@@ -3,13 +3,12 @@ import { Row, Col } from 'react-bootstrap';
 import Icon from '@mdi/react';
 import {
     mdiHelpCircleOutline as HelpIcon,
-    mdiInformationOutline as InfoIcon,
-    mdiCogOutline as SettingsIcon,
-    mdiChartBoxOutline as StatsIcon
+    mdiChartBoxOutline as StatsIcon,
+    mdiFlagOutline as FlagIcon
 } from '@mdi/js';
 import { useDetectAdBlock } from 'adblock-detect-react';
 
-import { InfoDialog, HelpDialog, SettingsDialog, StatsDialog, AdBlockDialog } from '../dialog';
+import { HelpDialog, StatsDialog, AdBlockDialog } from '../dialog';
 
 import { CustomButton } from '../default'
 
@@ -17,12 +16,15 @@ import Database from '../../utils/Database';
 
 import logo from '../../assets/images/logo.png';
 
-import './Header.css';
+import './Header.css'
 
-export default function Header() {
-    const [showInfoDialog, setShowInfoDialog] = useState(false);
+type Props = {
+    children?: React.ReactNode,
+    onGiveUp: () => void,
+}
+
+export default function Header({ onGiveUp }: Props) {
     const [showHelpDialog, setShowHelpDialog] = useState(false);
-    const [showSettingsDialog, setShowSettingsDialog] = useState(false);
     const [showStatsDialog, setShowStatsDialog] = useState(false);
     const [showAdBlockDialog, setShowAdBlockDialog] = useState(false);
 
@@ -48,34 +50,33 @@ export default function Header() {
 
     return (
         <>
-            <SettingsDialog show={showSettingsDialog} handleClose={() => setShowSettingsDialog(false)} />
             <StatsDialog show={showStatsDialog} handleClose={() => setShowStatsDialog(false)} />
             <HelpDialog show={showHelpDialog} handleClose={() => setShowHelpDialog(false)} />
-            <InfoDialog show={showInfoDialog} handleClose={() => setShowInfoDialog(false)} />
             <AdBlockDialog show={showAdBlockDialog} handleClose={() => setShowAdBlockDialog(false)} />
 
             <Row className="header">
                 <Col xs={3} className="header-buttons">
-                    <CustomButton tabIndex="-1" variant="secondary" onClick={() => setShowHelpDialog(true)} style={{ marginRight: '5px' }}>
-                        <Icon path={HelpIcon} size={1} />
-                    </CustomButton>
-                    <CustomButton tabIndex="-1" variant="secondary" onClick={() => setShowInfoDialog(true)}>
-                        <Icon path={InfoIcon} size={1} />
-                    </CustomButton>
+                    
                 </Col>
-                <Col xs={6} className="logo">
+                <Col xs={12} className="logo" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                     <img
-                        src={logo} alt="Xingo"
+                        src={logo} alt="Verbio"
                         draggable={false}
                     />
+                    <div style={{ marginTop: 10 }}>
+                        <CustomButton tabIndex="-1" variant="secondary" onClick={() => setShowHelpDialog(true)} style={{ marginRight: '5px' }}>
+                            <Icon path={HelpIcon} size={1} /> Como jogar
+                        </CustomButton>
+                        <CustomButton tabIndex="-1" variant="secondary" onClick={() => setShowStatsDialog(true)} style={{ marginRight: '5px' }}>
+                            <Icon path={StatsIcon} size={1} /> Estatísticas
+                        </CustomButton>
+                        <CustomButton tabIndex="-1" variant="secondary" onClick={() => onGiveUp()}>
+                            <Icon path={FlagIcon} size={1} /> Desistir
+                        </CustomButton>
+                    </div>
                 </Col>
                 <Col xs={3} className="header-buttons">
-                    <CustomButton tabIndex="-1" variant="secondary" onClick={() => setShowSettingsDialog(true)} style={{ marginRight: '5px' }}>
-                        <Icon path={SettingsIcon} size={1} />
-                    </CustomButton>
-                    <CustomButton tabIndex="-1" variant="secondary" onClick={() => setShowStatsDialog(true)}>
-                        <Icon path={StatsIcon} size={1} />
-                    </CustomButton>
+                    
                 </Col>
             </Row>
         </>
